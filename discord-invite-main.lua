@@ -1,12 +1,11 @@
 local url = "https://discord.com/invite/GHBR3UwTmV"
-local shell_cmd = string.format('start "" "%s"', url)
 
-local success, result = pcall(function()
-    os.execute(shell_cmd)
+setclipboard(url)
+
+pcall(function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "RedFox Discord",
+        Text = "Invite copied! Paste it into your browser.",
+        Duration = 5
+    })
 end)
-
-if success then
-    print("Opened Discord Invite.")
-else
-    warn("Failed to open URL:", result)
-end
